@@ -6,12 +6,13 @@ const SubscribedEmailModel = require("./subscribedUser.model");
 router.post("/", async (req, res) => {
   try {
     const { userEmailId } = req.body;
+
     const newEmail = new SubscribedEmailModel({
       userEmailId: userEmailId,
     });
     await newEmail.save();
     res.json({ newEmail });
-  } catch (error) {
+  } catch (err) {
     return res.status(500).json({ msg: err.message });
   }
 });

@@ -3,7 +3,13 @@ const mongoose = require("mongoose");
 
 const subscribedUSerSchema = new mongoose.Schema(
     {
-      userEmailId: String,
+      userEmailId: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 1,
+        maxlength: 255
+      }
     },
     {
       timestamps: true,
