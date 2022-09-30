@@ -12,15 +12,12 @@ app.use(cors())
 
 //.env
 dotenv.config();
-
+//Connect to DB.
+connectDB()
 
 app.get("/", (req, res) => {
   res.send("APIs Up && running");
 });
-//Connect to DB.
-connectDB()
-
-
 
 //Routes
 app.use('/api/subscription',require('./subscribedUser.route'))
